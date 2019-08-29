@@ -1,8 +1,8 @@
 return {
-  no_consumer = true, -- this plugin is available on APIs as well as on Consumers,
+  no_consumer = true,
   fields = {
-    -- Describe your plugin's configuration's schema here.
-    
+    path = {type = "string", required = false, default="api"},
+    header_key = {type = "string", required = false, default="X-Version"},
   },
   self_check = function(schema, plugin_t, dao, is_updating)
     -- perform any custom verification
