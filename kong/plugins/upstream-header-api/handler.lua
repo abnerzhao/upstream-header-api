@@ -12,8 +12,9 @@ function UpstreamHeaderApiHandler:access(conf)
   local upstream_uri = ngx.var.upstream_uri
   local path = conf.path
   local header_key = conf.header_key
+  local stable_version = conf.stable_version
   local api_version = nil
-  local api_path = string.format('%s/v1/', path)
+  local api_path = string.format('%s/%s/', path, stable_version)
   local find_str = string.format('%s/', path)
 
   api_version = ngx.req.get_headers()[header_key]
